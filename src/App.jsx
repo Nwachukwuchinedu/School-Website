@@ -1,5 +1,19 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { GraduationCap, BookOpen, Users, Calendar, ArrowDown, Mail, Phone, MapPin, Menu, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import {
+  GraduationCap,
+  BookOpen,
+  Users,
+  Calendar,
+  ArrowDown,
+  Mail,
+  Phone,
+  MapPin,
+  Menu,
+  X,
+} from "lucide-react";
+import bhsBackgroundImg from "./assets/images/bhs.jpg";
+import computerLab from "./assets/images/computer-lab.png"
+import bhsLogo from "./assets/images/bhslogo.jpeg"
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,8 +27,8 @@ function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -22,14 +36,14 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            entry.target.classList.add("animate-fade-in");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
@@ -37,9 +51,9 @@ function App() {
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
   }, [isMenuOpen]);
 
@@ -51,24 +65,44 @@ function App() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <GraduationCap className="text-blue-600" size={32} />
-              <span className="text-xl font-bold">Academia</span>
+              <img src={bhsLogo} alt="BHS Logo" className="w-10 h-10" />
+              <span className="text-xl font-bold">BHS</span>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Programs</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">About</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-all transform hover:scale-105">
+              <a
+                href="#"
+                className="text-gray-600 hover:text-brown-900 transition-colors"
+              >
+                Home
+              </a>
+              <a
+                href="#"
+                className="text-gray-600 hover:text-brown-900 transition-colors"
+              >
+                Programs
+              </a>
+              <a
+                href="#"
+                className="text-gray-600 hover:text-brown-900 transition-colors"
+              >
+                About
+              </a>
+              <a
+                href="#"
+                className="text-gray-600 hover:text-brown-900 transition-colors"
+              >
+                Contact
+              </a>
+              <button className="bg-green-900 hover:bg-green-1000 text-white px-4 py-2 rounded-full transition-all transform hover:scale-105">
                 Apply Now
               </button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-gray-600 hover:text-blue-600 transition-colors"
+            <button
+              className="md:hidden text-gray-600 hover:text-brown-900 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -77,43 +111,43 @@ function App() {
         </div>
 
         {/* Mobile Navigation */}
-        <div 
+        <div
           className={`fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
           } md:hidden`}
-          style={{ top: '64px' }}
+          style={{ top: "64px" }}
         >
-          <div className="container mx-auto px-4 py-6 space-y-6">
-            <a 
-              href="#" 
-              className="block text-lg text-gray-600 hover:text-blue-600 transition-colors"
+          <div className="w-full px-12 py-6 space-y-6 inset-0 bg-white">
+            <a
+              href="#"
+              className="block text-lg text-gray-600 hover:text-brown-900 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </a>
-            <a 
-              href="#" 
-              className="block text-lg text-gray-600 hover:text-blue-600 transition-colors"
+            <a
+              href="#"
+              className="block text-lg text-gray-600 hover:text-brown-900 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Programs
             </a>
-            <a 
-              href="#" 
-              className="block text-lg text-gray-600 hover:text-blue-600 transition-colors"
+            <a
+              href="#"
+              className="block text-lg text-gray-600 hover:text-brown-900 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </a>
-            <a 
-              href="#" 
-              className="block text-lg text-gray-600 hover:text-blue-600 transition-colors"
+            <a
+              href="#"
+              className="block text-lg text-gray-600 hover:text-brown-900 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </a>
-            <button 
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-all transform hover:scale-105"
+            <button
+              className="w-full bg-green-900 hover:bg-green-1000 text-white px-4 py-2 rounded-full transition-all transform hover:scale-105"
               onClick={() => setIsMenuOpen(false)}
             >
               Apply Now
@@ -127,14 +161,18 @@ function App() {
         ref={heroRef}
         className="relative h-screen bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80")',
+          backgroundImage: 'url(" ' + bhsBackgroundImg + '")',
         }}
       >
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
         <div className="relative text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">Excellence in Education</h1>
-          <p className="text-xl md:text-2xl mb-8">Shaping Tomorrow's Leaders Today</p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all transform hover:scale-105">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Excellence in Education
+          </h1>
+          <p className="text-xl md:text-2xl mb-8">
+            Shaping Tomorrow's Leaders Today
+          </p>
+          <button className="bg-green-900 hover:bg-green-1000 text-white px-8 py-3 rounded-full transition-all transform hover:scale-105">
             Apply Now
           </button>
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
@@ -148,24 +186,33 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="fade-in p-6 text-center">
-              <GraduationCap className="mx-auto mb-4 text-blue-600" size={40} />
-              <h3 className="text-xl font-semibold mb-2">Expert Faculty</h3>
-              <p className="text-gray-600">Learn from industry professionals and experienced educators</p>
+              <GraduationCap className="mx-auto mb-4 text-brown-900" size={40} />
+              <h3 className="text-xl font-semibold mb-2">Qualified Teachers</h3>
+              <p className="text-gray-600">
+                Learn from dedicated and experienced teachers who make learning
+                exciting.
+              </p>
             </div>
             <div className="fade-in p-6 text-center">
-              <BookOpen className="mx-auto mb-4 text-blue-600" size={40} />
+              <BookOpen className="mx-auto mb-4 text-green-900" size={40} />
               <h3 className="text-xl font-semibold mb-2">Modern Curriculum</h3>
-              <p className="text-gray-600">Comprehensive programs designed for the future</p>
+              <p className="text-gray-600">
+                Comprehensive programs designed for the future
+              </p>
             </div>
             <div className="fade-in p-6 text-center">
-              <Users className="mx-auto mb-4 text-blue-600" size={40} />
+              <Users className="mx-auto mb-4 text-brown-900" size={40} />
               <h3 className="text-xl font-semibold mb-2">Small Class Sizes</h3>
-              <p className="text-gray-600">Personalized attention for every student</p>
+              <p className="text-gray-600">
+                Personalized attention for every student
+              </p>
             </div>
             <div className="fade-in p-6 text-center">
-              <Calendar className="mx-auto mb-4 text-blue-600" size={40} />
+              <Calendar className="mx-auto mb-4 text-green-900" size={40} />
               <h3 className="text-xl font-semibold mb-2">Flexible Schedule</h3>
-              <p className="text-gray-600">Balance your studies with other commitments</p>
+              <p className="text-gray-600">
+                Balance your studies with other commitments
+              </p>
             </div>
           </div>
         </div>
@@ -175,19 +222,24 @@ function App() {
       <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="fade-in">
+            <div className="fade-in h-[50vh] flex">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80"
+                src={computerLab}
                 alt="Campus Life"
-                className="rounded-lg shadow-xl"
+                className="rounded-lg shadow-xl object-cover w-full h-full"
               />
             </div>
             <div className="fade-in">
               <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
               <p className="text-gray-600 mb-6">
-                We are committed to providing a transformative educational experience that empowers students to achieve their full potential. Through innovative teaching methods and a supportive learning environment, we prepare our students for success in their chosen fields.
+                Baptist High School (BHS) is committed to fostering the personal
+                and academic growth of its students while enhancing the school's
+                infrastructure for a better learning environment. By leveraging
+                the collective talents, skills, and resources of our community,
+                we aim to create a thriving and engaged network dedicated to
+                supporting current students.
               </p>
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105">
+              <button className="bg-green-900 hover:bg-green-1000 text-white px-6 py-3 rounded-full transition-all transform hover:scale-105">
                 Learn More
               </button>
             </div>
@@ -201,19 +253,30 @@ function App() {
           <h2 className="text-4xl font-bold text-center mb-12">Get in Touch</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="fade-in text-center">
-              <Phone className="mx-auto mb-4 text-blue-600" size={32} />
+              <Phone className="mx-auto mb-4 text-brown-900" size={32} />
               <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-              <p className="text-gray-600">(555) 123-4567</p>
+              <a href="tel:+2348138637470" className="text-gray-600">
+                +234 813 863 7470
+              </a>
             </div>
             <div className="fade-in text-center">
-              <Mail className="mx-auto mb-4 text-blue-600" size={32} />
+              <Mail className="mx-auto mb-4 text-brown-900" size={32} />
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-              <p className="text-gray-600">info@school.edu</p>
+              <a href="mailto:bhsbenin@gmail.com" className="text-gray-600">
+                bhsbenin@gmail.com
+              </a>
             </div>
             <div className="fade-in text-center">
-              <MapPin className="mx-auto mb-4 text-blue-600" size={32} />
+              <MapPin className="mx-auto mb-4 text-brown-900" size={32} />
               <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-              <p className="text-gray-600">123 Education Ave, Learning City</p>
+              <a
+                href="https://maps.app.goo.gl/Nq1a4kzVzYxSrMHj7"
+                className="text-gray-600"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Baptist High School, 5 Tv Rd, Benin City 300102, Edo
+              </a>
             </div>
           </div>
         </div>
@@ -222,7 +285,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 School Name. All rights reserved.</p>
+          <p>&copy; 2025 Baptist High School. All rights reserved.</p>
         </div>
       </footer>
     </div>
