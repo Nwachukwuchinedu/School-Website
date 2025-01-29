@@ -12,6 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import bhsBackgroundImg from "./assets/images/bhs.jpg";
 import computerLab from "./assets/images/computer-lab.png"
 import bhsLogo from "./assets/images/bhslogo.jpeg"
@@ -187,7 +188,10 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="fade-in p-6 text-center">
-              <GraduationCap className="mx-auto mb-4 text-brown-900" size={40} />
+              <GraduationCap
+                className="mx-auto mb-4 text-brown-900"
+                size={40}
+              />
               <h3 className="text-xl font-semibold mb-2">Qualified Teachers</h3>
               <p className="text-gray-600">
                 Learn from dedicated and experienced teachers who make learning
@@ -290,6 +294,7 @@ function App() {
         </div>
       </footer>
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
