@@ -11,6 +11,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import bhsBackgroundImg from "./assets/images/bhs.jpg";
 import computerLab from "./assets/images/computer-lab.png"
 import bhsLogo from "./assets/images/bhslogo.jpeg"
@@ -288,6 +289,7 @@ function App() {
           <p>&copy; 2025 Baptist High School. All rights reserved.</p>
         </div>
       </footer>
+      <Analytics />
     </div>
   );
 }
